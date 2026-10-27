@@ -1,10 +1,6 @@
 name: CI
 
-on:
-  push:
-    branches:
-      - main
-  pull_request:
+on: [push, pull_request]
 
 jobs:
   lint-and-test:
@@ -30,4 +26,13 @@ jobs:
         run: ruff check src tests
 
       - name: Run tests
-        run: pytest
+        shell: bash
+        run: |
+          status=0
+          python -m pytest tests || status=$?
+
+          if [ "$status" -eq 5 ]; then
+            echo "::notice::No tests exist yet; test execution is configured for future tests."
+          else
+            exit "$status"
+          fi
