@@ -122,3 +122,27 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAuthenticated',
     ),
 }
+
+
+# ---------------------------------------------------------------------------
+# Password hashing & JWT expiry (Reyansh — PR #3)
+# ---------------------------------------------------------------------------
+
+from datetime import timedelta
+
+# BBMS-SR-003: Passwords stored with salted hashing.
+# Django's default PBKDF2 is listed first (used for new passwords).
+PASSWORD_HASHERS = [
+    'django.contrib.auth.hashers.PBKDF2PasswordHasher',
+    'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
+    'django.contrib.auth.hashers.Argon2PasswordHasher',
+    'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
+]
+
+# BBMS-SR-005: JWT tokens with an explicit expiry.
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=30),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
+    'ROTATE_REFRESH_TOKENS': False,
+    'AUTH_HEADER_TYPES': ('Bearer',),
+}
