@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BBMS - Blood Inventory Stock</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <div class="nav-container">
+      <div class="brand">
+        🩸 BBMS - Inventory Stock
+      </div>
+      <div class="nav-links">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="donation_form.html">Record Donation</a>
+        <a href="search.html">Search Blood</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="card">
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+        <div>
+          <h2>Real-Time Blood Stock</h2>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">
+            Current blood units count per group and component (BBMS-F-020). Low stock (≤ 3 units) highlighted in red.
+          </p>
+        </div>
+        <div>
+          <a href="search.html" class="btn btn-secondary">🔍 Search Stock</a>
+        </div>
+      </div>
+
+      <div id="alert-box" class="alert" style="display: none; margin-top: 1rem;"></div>
+
+      <div id="stock-container" class="stock-grid">
+        <p style="color: #666;">Loading inventory...</p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    BBMS Team 9 &bull; Software Engineering Mini-Project &bull; Sprint 1
+  </footer>
+
+  <script src="js/api.js"></script>
+  <script src="js/stock.js"></script>
+</body>
+</html>
