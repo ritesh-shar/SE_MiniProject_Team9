@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BBMS - Donor Registration</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <div class="nav-container">
+      <div class="brand">
+        🩸 Blood Bank Management System
+      </div>
+      <div class="nav-links">
+        <a href="index.html">Sign In</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="card auth-card">
+      <h2 style="text-align: center; margin-bottom: 0.5rem;">Donor Registration</h2>
+      <p style="text-align: center; color: var(--text-muted); margin-bottom: 1.5rem; font-size: 0.9rem;">
+        Register to become a blood donor (BBMS-F-001)
+      </p>
+
+      <div id="alert-box" class="alert" style="display: none;"></div>
+
+      <form id="register-form">
+        <div class="form-group">
+          <label for="username">Username *</label>
+          <input type="text" id="username" name="username" placeholder="Choose a username" required autofocus>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address *</label>
+          <input type="email" id="email" name="email" placeholder="yourname@example.com" required>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password * (min 8 chars)</label>
+          <input type="password" id="password" name="password" minlength="8" placeholder="Create a secure password" required>
+        </div>
+
+        <div class="form-group">
+          <label for="blood_group">Blood Group *</label>
+          <select id="blood_group" name="blood_group" required>
+            <option value="">-- Select Blood Group --</option>
+            <option value="A+">A+</option>
+            <option value="A-">A-</option>
+            <option value="B+">B+</option>
+            <option value="B-">B-</option>
+            <option value="AB+">AB+</option>
+            <option value="AB-">AB-</option>
+            <option value="O+">O+</option>
+            <option value="O-">O-</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone / Contact Number *</label>
+          <input type="tel" id="phone" name="phone" placeholder="+91-9876543210" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 0.5rem;">Register</button>
+      </form>
+
+      <div style="margin-top: 1.5rem; text-align: center; font-size: 0.9rem;">
+        Already have an account? <a href="index.html" style="color: var(--primary-color); font-weight: 600;">Sign in here</a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    BBMS Team 9 &bull; Software Engineering Mini-Project &bull; Sprint 1
+  </footer>
+
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

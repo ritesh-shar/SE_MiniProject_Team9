@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BBMS - Dashboard</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <div class="nav-container">
+      <div class="brand">
+        🩸 BBMS Dashboard
+      </div>
+      <div class="nav-links">
+        <span style="font-size: 0.9rem;">
+          Welcome, <strong id="user-display-name">User</strong>
+          <span id="user-role-badge" class="badge badge-role">ROLE</span>
+        </span>
+        <a href="#" id="logout-btn" class="btn btn-outline" style="padding: 0.3rem 0.8rem; font-size: 0.85rem;">Logout</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <!-- Quick Actions -->
+    <div class="card">
+      <h2>Quick Actions</h2>
+      <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1rem;">
+        <!-- Staff only action -->
+        <a href="donation_form.html" class="btn btn-primary role-staff-only" style="display: none;">
+          ➕ Record Blood Donation
+        </a>
+
+        <!-- Staff / Hospital / Admin actions -->
+        <a href="stock.html" class="btn btn-secondary role-hospital-staff" style="display: none;">
+          📊 View Blood Stock
+        </a>
+        <a href="search.html" class="btn btn-secondary role-hospital-staff" style="display: none;">
+          🔍 Search Blood Stock
+        </a>
+      </div>
+    </div>
+
+    <!-- Role-based notices -->
+    <div class="card role-donor-only" style="display: none; background-color: #fcfcfc;">
+      <h3>Donor Portal</h3>
+      <p style="color: var(--text-muted); font-size: 0.95rem;">
+        Thank you for saving lives through blood donation. Below is your personal donation history.
+        Remember, a minimum of 90 days must elapse between donations to ensure your safety and health.
+      </p>
+    </div>
+
+    <!-- Donation History -->
+    <div class="card">
+      <h3>Donation History</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Donor</th>
+            <th>Blood Group</th>
+            <th>Component</th>
+            <th>Quantity</th>
+            <th>Donation Date</th>
+          </tr>
+        </thead>
+        <tbody id="donation-history-body">
+          <tr>
+            <td colspan="6" style="text-align: center; color: #888;">Loading history...</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <footer>
+    BBMS Team 9 &bull; Software Engineering Mini-Project &bull; Sprint 1
+  </footer>
+
+  <script src="js/api.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

@@ -33,6 +33,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # --- Added by Ritesh Kumar Sharma (PR #2) ---
+    'rest_framework',
+    'accounts',
+    'donations',
+    'inventory',
 ]
 
 MIDDLEWARE = [
@@ -101,3 +106,19 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# ---------------------------------------------------------------------------
+# Custom user model & REST framework (Ritesh Kumar Sharma — PR #2)
+# ---------------------------------------------------------------------------
+
+AUTH_USER_MODEL = 'accounts.User'
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+}
