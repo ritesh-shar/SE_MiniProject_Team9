@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BBMS - Staff Request Reviews</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <div class="nav-container">
+      <div class="brand">
+        🩸 BBMS - Staff Request Operations
+      </div>
+      <div class="nav-links">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="stock.html">Blood Stock</a>
+        <a href="donation_form.html">Record Donation</a>
+        <a href="#" id="logout-link">Logout</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="card">
+      <h2>Pending Blood Requisitions (BBMS-F-040)</h2>
+      <p style="color: var(--text-muted); font-size: 0.9rem;">
+        Staff review panel to approve or reject pending hospital requisitions.
+      </p>
+
+      <div id="staff-alert" class="alert" style="display: none; margin-top: 1rem;"></div>
+
+      <table style="margin-top: 1rem;">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Hospital</th>
+            <th>Group</th>
+            <th>Component</th>
+            <th>Quantity</th>
+            <th>Urgency</th>
+            <th>Date</th>
+            <th>Review Actions</th>
+          </tr>
+        </thead>
+        <tbody id="pending-requests-body">
+          <tr>
+            <td colspan="8" style="text-align: center; color: #888;">Loading pending requests...</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card" style="margin-top: 2rem;">
+      <h2>Approved Requests Ready for Issue (BBMS-F-041)</h2>
+      <p style="color: var(--text-muted); font-size: 0.9rem;">
+        Approved blood requests awaiting physical inventory decrement and dispatch.
+      </p>
+
+      <table style="margin-top: 1rem;">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Hospital</th>
+            <th>Group</th>
+            <th>Component</th>
+            <th>Quantity</th>
+            <th>Approved By</th>
+            <th>Issue Action</th>
+          </tr>
+        </thead>
+        <tbody id="approved-requests-body">
+          <tr>
+            <td colspan="7" style="text-align: center; color: #888;">Loading approved requests...</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <footer>
+    BBMS Team 9 &bull; Software Engineering Mini-Project &bull; Sprint 2
+  </footer>
+
+  <script src="js/api.js"></script>
+  <script src="js/staff_requests.js"></script>
+</body>
+</html>
