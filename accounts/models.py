@@ -45,5 +45,15 @@ class User(AbstractUser):
         help_text='Contact phone number.',
     )
 
+    # BBMS-F-003: Account Lockout after 5 failed login attempts
+    failed_login_attempts = models.PositiveIntegerField(
+        default=0,
+        help_text='Number of consecutive failed login attempts.',
+    )
+    is_locked = models.BooleanField(
+        default=False,
+        help_text='Designates whether this account is locked due to excessive failed logins.',
+    )
+
     def __str__(self):
         return f"{self.username} ({self.get_role_display()})"
