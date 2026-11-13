@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'donations',
     'inventory',
     'bloodrequests',
+    'audit',
 ]
 
 MIDDLEWARE = [
@@ -156,3 +157,14 @@ SECURE_SSL_REDIRECT = os.environ.get('DJANGO_SECURE_SSL_REDIRECT', 'False').lowe
 SECURE_HSTS_SECONDS = int(os.environ.get('DJANGO_SECURE_HSTS_SECONDS', '0'))
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https') if os.environ.get('DJANGO_BEHIND_PROXY', 'False').lower() in ('true', '1', 'yes') else None
 NOTIFICATION_SERVICE_URL = os.environ.get('NOTIFICATION_SERVICE_URL', 'http://127.0.0.1:3000/notify')
+
+
+# ---------------------------------------------------------------------------
+# Account Lockout & Audit Settings (Reyansh — PR #3)
+# ---------------------------------------------------------------------------
+AUTHENTICATION_BACKENDS = [
+    'accounts.backends.LockoutBackend',
+    'django.contrib.auth.backends.ModelBackend',
+]
+
+MAX_FAILED_LOGIN_ATTEMPTS = int(os.environ.get('MAX_FAILED_LOGIN_ATTEMPTS', '5'))
