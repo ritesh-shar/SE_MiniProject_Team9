@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BBMS - Hospital Blood Requests</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <div class="nav-container">
+      <div class="brand">
+        🩸 BBMS - Hospital Requests
+      </div>
+      <div class="nav-links">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="stock.html">Blood Stock</a>
+        <a href="#" id="logout-link">Logout</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <!-- Blood Request Form -->
+    <div class="card">
+      <h2>Submit Blood Request</h2>
+      <p style="color: var(--text-muted); font-size: 0.9rem;">
+        Hospital blood requisition portal (BBMS-F-031). Requests will be reviewed by blood bank staff.
+      </p>
+
+      <div id="request-alert" class="alert" style="display: none; margin-top: 1rem;"></div>
+
+      <form id="blood-request-form" style="margin-top: 1.5rem;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem;">
+          <div class="form-group">
+            <label for="blood-group">Blood Group</label>
+            <select id="blood-group" required class="form-control">
+              <option value="">Select Blood Group</option>
+              <option value="A+">A+</option>
+              <option value="A-">A-</option>
+              <option value="B+">B+</option>
+              <option value="B-">B-</option>
+              <option value="AB+">AB+</option>
+              <option value="AB-">AB-</option>
+              <option value="O+">O+</option>
+              <option value="O-">O-</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="component">Component</label>
+            <select id="component" required class="form-control">
+              <option value="whole_blood">Whole Blood</option>
+              <option value="red_cells">Red Cells</option>
+              <option value="plasma">Plasma</option>
+              <option value="platelets">Platelets</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="quantity">Quantity (Units)</label>
+            <input type="number" id="quantity" min="1" max="100" value="1" required class="form-control">
+          </div>
+
+          <div class="form-group">
+            <label for="urgency">Urgency</label>
+            <select id="urgency" required class="form-control">
+              <option value="normal">Normal</option>
+              <option value="urgent">Urgent</option>
+              <option value="critical">Critical</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="submit" id="submit-btn" class="btn btn-primary" style="margin-top: 1rem;">
+          Submit Requisition
+        </button>
+      </form>
+    </div>
+
+    <!-- Request History List -->
+    <div class="card" style="margin-top: 2rem;">
+      <h3>Your Submitted Requests</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Request ID</th>
+            <th>Blood Group</th>
+            <th>Component</th>
+            <th>Quantity</th>
+            <th>Urgency</th>
+            <th>Status</th>
+            <th>Date</th>
+            <th>Decision / Notes</th>
+          </tr>
+        </thead>
+        <tbody id="requests-table-body">
+          <tr>
+            <td colspan="8" style="text-align: center; color: #888;">Loading requests...</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <footer>
+    BBMS Team 9 &bull; Software Engineering Mini-Project &bull; Sprint 2
+  </footer>
+
+  <script src="js/api.js"></script>
+  <script src="js/hospital_requests.js"></script>
+</body>
+</html>
