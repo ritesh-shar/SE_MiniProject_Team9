@@ -51,6 +51,18 @@ document.addEventListener('DOMContentLoaded', async () => {
     el.style.display = isDonor ? 'block' : 'none';
   });
 
+  // --- Added by Rithish P M (PR #1 - Sprint 2) ---
+  const adminOnlyElements = document.querySelectorAll('.role-admin-only');
+  const hospitalOnlyElements = document.querySelectorAll('.role-hospital-only');
+  const isAdmin = user.role === 'admin';
+  const isHospital = user.role === 'hospital';
+  adminOnlyElements.forEach((el) => {
+    el.style.display = isAdmin ? 'block' : 'none';
+  });
+  hospitalOnlyElements.forEach((el) => {
+    el.style.display = isHospital ? 'block' : 'none';
+  });
+
   // Load donation history if on history container
   const historyTable = document.getElementById('donation-history-body');
   if (historyTable) {

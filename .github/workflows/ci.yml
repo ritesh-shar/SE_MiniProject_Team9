@@ -25,6 +25,10 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+      - name: Check for unapplied model changes
+        run: |
+          python manage.py makemigrations --check --dry-run
+
       - name: Run database migrations
         run: |
           python manage.py migrate
@@ -32,3 +36,15 @@ jobs:
       - name: Run test suite
         run: |
           python manage.py test
+
+      # --- Sprint 2 PR 1 (RPM): Node.js Notification Microservice CI ---
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Test notification service
+        run: |
+          cd notification-service
+          npm install
+          npm test

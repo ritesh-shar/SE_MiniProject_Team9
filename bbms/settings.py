@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'accounts',
     'donations',
     'inventory',
+    'bloodrequests',
 ]
 
 MIDDLEWARE = [
@@ -146,3 +147,12 @@ SIMPLE_JWT = {
     'ROTATE_REFRESH_TOKENS': False,
     'AUTH_HEADER_TYPES': ('Bearer',),
 }
+
+
+# ---------------------------------------------------------------------------
+# Blood Requests & Security Settings (Rithish P M — PR #1)
+# ---------------------------------------------------------------------------
+SECURE_SSL_REDIRECT = os.environ.get('DJANGO_SECURE_SSL_REDIRECT', 'False').lower() in ('true', '1', 'yes')
+SECURE_HSTS_SECONDS = int(os.environ.get('DJANGO_SECURE_HSTS_SECONDS', '0'))
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https') if os.environ.get('DJANGO_BEHIND_PROXY', 'False').lower() in ('true', '1', 'yes') else None
+NOTIFICATION_SERVICE_URL = os.environ.get('NOTIFICATION_SERVICE_URL', 'http://127.0.0.1:3000/notify')
