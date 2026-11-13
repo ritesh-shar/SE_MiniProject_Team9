@@ -1,0 +1,12 @@
+[run]
+source = .
+omit =
+    */migrations/*
+    */tests/*
+    test_*.py
+    scripts/*
+    manage.py
+    frontend/*
+    .baseline/*
+    handouts/*
+    handouts_s2/*
