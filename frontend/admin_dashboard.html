@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BBMS - Administrator Dashboard</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <div class="nav-container">
+      <div class="brand">
+        🩸 BBMS - Admin Operations
+      </div>
+      <div class="nav-links">
+        <a href="dashboard.html">Main Dashboard</a>
+        <a href="stock.html">Stock</a>
+        <a href="#" id="logout-link">Logout</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="card">
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+        <div>
+          <h2>System Operations Dashboard</h2>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">
+            Real-time administrative metrics, data export, and donor notification dispatch (BBMS-F-050, BBMS-F-051, BBMS-F-052).
+          </p>
+        </div>
+        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+          <button id="send-reminders-btn" class="btn btn-primary" style="background-color: #2e7d32;">
+            🔔 Send Donor Reminders
+          </button>
+        </div>
+      </div>
+
+      <div id="admin-alert" class="alert" style="display: none; margin-top: 1rem;"></div>
+
+      <!-- Export Actions Card -->
+      <div style="margin-top: 1.5rem; padding: 1rem; background-color: #f8f9fa; border-radius: 6px; border: 1px solid #e2e8f0;">
+        <h4 style="margin-bottom: 0.5rem;">📥 Reports & Data Export (BBMS-F-052)</h4>
+        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+          <a href="/api/requests/export/donations?format=csv" class="btn btn-secondary" style="font-size: 0.85rem;" download>📄 Export Donations (CSV)</a>
+          <a href="/api/requests/export/donations?format=pdf" class="btn btn-secondary" style="font-size: 0.85rem;" target="_blank">📑 Export Donations (PDF)</a>
+          <a href="/api/requests/export/inventory?format=csv" class="btn btn-secondary" style="font-size: 0.85rem;" download>📊 Export Stock (CSV)</a>
+          <a href="/api/requests/export/inventory?format=pdf" class="btn btn-secondary" style="font-size: 0.85rem;" target="_blank">📑 Export Stock (PDF)</a>
+        </div>
+      </div>
+
+      <!-- Metric Highlights -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem;">
+        <div style="padding: 1.2rem; background: #fff; border: 1px solid #ddd; border-radius: 8px; text-align: center;">
+          <div style="font-size: 0.85rem; color: #666; text-transform: uppercase;">Total Units in Stock</div>
+          <div id="stat-stock-total" style="font-size: 2rem; font-weight: bold; color: #c00;">-</div>
+        </div>
+        <div style="padding: 1.2rem; background: #fff; border: 1px solid #ddd; border-radius: 8px; text-align: center;">
+          <div style="font-size: 0.85rem; color: #666; text-transform: uppercase;">Pending Requests</div>
+          <div id="stat-pending-total" style="font-size: 2rem; font-weight: bold; color: #d97706;">-</div>
+        </div>
+        <div style="padding: 1.2rem; background: #fff; border: 1px solid #ddd; border-radius: 8px; text-align: center;">
+          <div style="font-size: 0.85rem; color: #666; text-transform: uppercase;">Total Donations Logged</div>
+          <div id="stat-donations-total" style="font-size: 2rem; font-weight: bold; color: #0284c7;">-</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pending Requests Table -->
+    <div class="card" style="margin-top: 1.5rem;">
+      <h3>Pending Blood Requisitions</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Hospital</th>
+            <th>Group</th>
+            <th>Component</th>
+            <th>Units</th>
+            <th>Urgency</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody id="admin-pending-table">
+          <tr>
+            <td colspan="7" style="text-align: center; color: #888;">Loading pending requests...</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Recent Donations Table -->
+    <div class="card" style="margin-top: 1.5rem;">
+      <h3>Recent Donations</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Donor</th>
+            <th>Group</th>
+            <th>Component</th>
+            <th>Units</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody id="admin-donations-table">
+          <tr>
+            <td colspan="6" style="text-align: center; color: #888;">Loading donations...</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <footer>
+    BBMS Team 9 &bull; Software Engineering Mini-Project &bull; Sprint 2
+  </footer>
+
+  <script src="js/api.js"></script>
+  <script src="js/admin_dashboard.js"></script>
+</body>
+</html>

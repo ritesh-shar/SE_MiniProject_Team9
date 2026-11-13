@@ -1,0 +1,7 @@
+from django.apps import AppConfig
+
+
+class BloodrequestsConfig(AppConfig):
+    default_auto_field = 'django.db.models.BigAutoField'
+    name = 'bloodrequests'
+    verbose_name = 'Blood Requests'
