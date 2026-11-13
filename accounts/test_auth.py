@@ -50,3 +50,25 @@ class AuthenticationTests(TestCase):
         response = self.client.post(self.login_url, payload, format='json')
 
         self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
+
+    # BBMS-F-002 / Public Endpoint Auth Header Robustness (Added by RKS — Sprint 2 Health Check)
+    def test_TC_Auth_01_login_with_expired_or_garbage_auth_header_succeeds(self):
+        """
+        Public login endpoint must ignore old or invalid Authorization headers.
+        Login succeeds and returns JWT tokens even when browser passes expired header.
+        """
+        payload = {
+            'username': 'authuser',
+            'password': 'CorrectPassword123!',
+        }
+        response = self.client.post(
+            self.login_url,
+            payload,
+            format='json',
+            HTTP_AUTHORIZATION='Bearer expired_or_garbage_jwt_token_from_prior_session',
+        )
+
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertIn('access', response.data)
+        self.assertIn('refresh', response.data)
+
