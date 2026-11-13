@@ -33,6 +33,9 @@ urlpatterns = [
     path('api/requests/', include('bloodrequests.urls')),
     path('api/admin/dashboard', AdminDashboardView.as_view(), name='admin-dashboard'),
     path('api/health', HealthCheckView.as_view(), name='health-check'),
+
+    # --- Reyansh (PR #3 - Sprint 2) ---
+    path('api/audit/', include('audit.urls')),
 ]
 
 

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BBMS - Audit Trail</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <div class="nav-container">
+      <div class="brand">
+        🩸 BBMS - Security & Audit Trail
+      </div>
+      <div class="nav-links">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="admin_dashboard.html">Admin Ops</a>
+        <a href="#" id="logout-link">Logout</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="card">
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+        <div>
+          <h2>System Audit Trail (BBMS-SR-004 / BBMS-NF-005)</h2>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">
+            Immutable security log recording authentication attempts, administrative operations, and inventory changes.
+          </p>
+        </div>
+        <div>
+          <label for="event-filter" style="font-size: 0.85rem; font-weight: bold;">Filter Event:</label>
+          <select id="event-filter" class="form-control" style="width: auto; display: inline-block;">
+            <option value="">All Events</option>
+            <option value="LOGIN_SUCCESS">Login Success</option>
+            <option value="LOGIN_FAILED">Login Failed</option>
+            <option value="ACCOUNT_LOCKED">Account Locked</option>
+            <option value="ADMIN_ACTION">Admin Actions</option>
+            <option value="STOCK_CHANGE">Inventory Changes</option>
+            <option value="REQUEST_CHANGE">Request Workflow</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="audit-alert" class="alert" style="display: none; margin-top: 1rem;"></div>
+
+      <table style="margin-top: 1.5rem;">
+        <thead>
+          <tr>
+            <th>Timestamp</th>
+            <th>Event Type</th>
+            <th>User</th>
+            <th>IP Address</th>
+            <th>Description</th>
+            <th>Details</th>
+          </tr>
+        </thead>
+        <tbody id="audit-table-body">
+          <tr>
+            <td colspan="6" style="text-align: center; color: #888;">Loading audit records...</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <footer>
+    BBMS Team 9 &bull; Software Engineering Mini-Project &bull; Sprint 2
+  </footer>
+
+  <script src="js/api.js"></script>
+  <script src="js/audit.js"></script>
+</body>
+</html>
