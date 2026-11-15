@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'inventory',
     'bloodrequests',
     'audit',
+    'dispatch',
 ]
 
 MIDDLEWARE = [
@@ -168,3 +169,9 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 MAX_FAILED_LOGIN_ATTEMPTS = int(os.environ.get('MAX_FAILED_LOGIN_ATTEMPTS', '5'))
+
+
+# ---------------------------------------------------------------------------
+# Dispatch & Inventory Alert Settings (Ritesh Babu Reddy — PR #4)
+# ---------------------------------------------------------------------------
+DEFAULT_STOCK_THRESHOLD = int(os.environ.get('DEFAULT_STOCK_THRESHOLD', '10'))

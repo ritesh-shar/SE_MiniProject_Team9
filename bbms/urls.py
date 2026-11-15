@@ -36,6 +36,9 @@ urlpatterns = [
 
     # --- Reyansh (PR #3 - Sprint 2) ---
     path('api/audit/', include('audit.urls')),
+
+    # --- Ritesh Babu Reddy (PR #4 - Sprint 2) ---
+    path('api/dispatch/', include('dispatch.urls')),
 ]
 
 
