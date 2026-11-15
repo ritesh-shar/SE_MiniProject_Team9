@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BBMS - Dispatch Record Tracking</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <div class="nav-container">
+      <div class="brand">
+        🩸 BBMS - Dispatch Tracking
+      </div>
+      <div class="nav-links">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="hospital_requests.html">Requisitions</a>
+        <a href="#" id="logout-link">Logout</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="card">
+      <h2>Retrieve Dispatch Manifest (BBMS-F-042)</h2>
+      <p style="color: var(--text-muted); font-size: 0.9rem;">
+        Look up official blood unit dispatch certificates and chain-of-custody records by Requisition ID.
+      </p>
+
+      <form id="dispatch-search-form" style="margin-top: 1.5rem; display: flex; gap: 0.75rem; max-width: 450px;">
+        <input type="number" id="request-id-input" placeholder="Enter Request ID (e.g. 1)" required class="form-control" style="flex: 1;">
+        <button type="submit" class="btn btn-primary">Find Dispatch</button>
+      </form>
+
+      <div id="dispatch-alert" class="alert" style="display: none; margin-top: 1rem;"></div>
+
+      <div id="dispatch-card" style="display: none; margin-top: 1.5rem; padding: 1.5rem; border: 1px solid #cbd5e1; border-radius: 8px; background-color: #f8fafc;">
+        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e2e8f0; padding-bottom: 0.75rem;">
+          <h3 style="margin: 0; color: #0f172a;">Official Blood Dispatch Manifest</h3>
+          <span id="dispatch-id-badge" class="badge badge-success">DISPATCH #</span>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-top: 1rem;">
+          <div>
+            <div style="font-size: 0.8rem; color: #64748b; text-transform: uppercase;">Dispatched Timestamp</div>
+            <strong id="disp-timestamp" style="font-size: 1rem;">-</strong>
+          </div>
+          <div>
+            <div style="font-size: 0.8rem; color: #64748b; text-transform: uppercase;">Issuing Staff Member</div>
+            <strong id="disp-staff" style="font-size: 1rem;">-</strong>
+          </div>
+          <div>
+            <div style="font-size: 0.8rem; color: #64748b; text-transform: uppercase;">Recipient Hospital</div>
+            <strong id="disp-hospital" style="font-size: 1rem;">-</strong>
+          </div>
+          <div>
+            <div style="font-size: 0.8rem; color: #64748b; text-transform: uppercase;">Requisition ID</div>
+            <strong id="disp-req-id" style="font-size: 1rem;">-</strong>
+          </div>
+        </div>
+
+        <div style="margin-top: 1.5rem; padding: 1rem; background: #fff; border-radius: 6px; border: 1px solid #e2e8f0;">
+          <h4 style="margin-top: 0;">Cargo Specifications</h4>
+          <p id="disp-details" style="margin: 0; font-family: monospace; font-size: 0.9rem; color: #334155;">-</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    BBMS Team 9 &bull; Software Engineering Mini-Project &bull; Sprint 2
+  </footer>
+
+  <script src="js/api.js"></script>
+  <script src="js/dispatch.js"></script>
+</body>
+</html>
