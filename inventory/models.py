@@ -52,3 +52,30 @@ class BloodStock(models.Model):
 
     def __str__(self):
         return f"{self.blood_group} - {self.get_component_display()}: {self.units_available} units"
+
+
+# ---------------------------------------------------------------------------
+# Stock Thresholds for Alerts (Ritesh Babu Reddy — PR #4)
+# ---------------------------------------------------------------------------
+# BBMS-F-022
+class StockThreshold(models.Model):
+    """
+    Configurable minimum stock threshold per blood group.
+    """
+    blood_group = models.CharField(
+        max_length=3,
+        choices=BloodStock.BLOOD_GROUP_CHOICES,
+        unique=True,
+        help_text='Blood group for threshold alert.',
+    )
+    min_units = models.PositiveIntegerField(
+        default=10,
+        help_text='Minimum units required before triggering a low-stock alert.',
+    )
+
+    class Meta:
+        ordering = ['blood_group']
+
+    def __str__(self):
+        return f"Threshold: {self.blood_group} >= {self.min_units} units"
+
