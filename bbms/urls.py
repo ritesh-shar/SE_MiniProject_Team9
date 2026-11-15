@@ -16,6 +16,7 @@ from inventory.views import InventoryListView
 from bloodrequests.views import BloodRequestView
 from bloodrequests.dashboard_views import AdminDashboardView
 from bloodrequests.health_views import HealthCheckView
+from audit.views import AuditLogListView
 
 urlpatterns = [
     # --- Rithish P M (PR #1) ---
@@ -35,6 +36,7 @@ urlpatterns = [
     path('api/health', HealthCheckView.as_view(), name='health-check'),
 
     # --- Reyansh (PR #3 - Sprint 2) ---
+    path('api/audit', AuditLogListView.as_view(), name='audit-root'),
     path('api/audit/', include('audit.urls')),
 
     # --- Ritesh Babu Reddy (PR #4 - Sprint 2) ---
