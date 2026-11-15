@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BBMS - Inventory Alerts</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <div class="nav-container">
+      <div class="brand">
+        🩸 BBMS - Stock Alerts
+      </div>
+      <div class="nav-links">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="stock.html">Stock</a>
+        <a href="search.html">Search</a>
+        <a href="#" id="logout-link">Logout</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="card">
+      <h2>Active Stock & Expiry Alerts</h2>
+      <p style="color: var(--text-muted); font-size: 0.9rem;">
+        Automated surveillance for inventory deficits and biological unit expirations (BBMS-F-021, BBMS-F-022).
+      </p>
+
+      <div id="alerts-msg" class="alert" style="display: none; margin-top: 1rem;"></div>
+    </div>
+
+    <!-- Low-Stock Alerts Section (BBMS-F-022) -->
+    <div class="card" style="margin-top: 1.5rem;">
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+        <div>
+          <h3>🚨 Low-Stock Alerts (BBMS-F-022)</h3>
+          <p style="color: var(--text-muted); font-size: 0.85rem;">
+            Blood groups falling below minimum safety thresholds (default: 10 units). Highlighted in red.
+          </p>
+        </div>
+      </div>
+
+      <div id="low-stock-grid" class="stock-grid">
+        <p style="color: #666;">Evaluating inventory thresholds...</p>
+      </div>
+    </div>
+
+    <!-- Expiring Blood Units Section (BBMS-F-021) -->
+    <div class="card" style="margin-top: 1.5rem;">
+      <h3>⏳ Units Expiring Within 5 Days (BBMS-F-021)</h3>
+      <p style="color: var(--text-muted); font-size: 0.85rem;">
+        Calculated from donation date and biological shelf life (Whole Blood 35d, Red Cells 42d, Platelets 5d, Plasma 365d).
+      </p>
+
+      <table style="margin-top: 1rem;">
+        <thead>
+          <tr>
+            <th>Donation ID</th>
+            <th>Donor</th>
+            <th>Group</th>
+            <th>Component</th>
+            <th>Units</th>
+            <th>Donated On</th>
+            <th>Expiry Date</th>
+            <th>Days Remaining</th>
+          </tr>
+        </thead>
+        <tbody id="expiring-table-body">
+          <tr>
+            <td colspan="8" style="text-align: center; color: #888;">Scanning for expiring units...</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <footer>
+    BBMS Team 9 &bull; Software Engineering Mini-Project &bull; Sprint 2
+  </footer>
+
+  <script src="js/api.js"></script>
+  <script src="js/alerts.js"></script>
+</body>
+</html>
