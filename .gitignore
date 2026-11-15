@@ -26,3 +26,8 @@ handouts/
 # OS files
 .DS_Store
 Thumbs.db
+
+# Node and coverage artifacts
+node_modules/
+.coverage
+notification-service/outbox.json

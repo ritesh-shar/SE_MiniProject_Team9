@@ -1,0 +1,79 @@
+Name                                                Stmts   Miss  Cover   Missing
+---------------------------------------------------------------------------------
+accounts\__init__.py                                    0      0   100%
+accounts\admin.py                                      11      0   100%
+accounts\admin_actions.py                               9      5    44%   15-20
+accounts\apps.py                                        4      0   100%
+accounts\backends.py                                   27      5    81%   27, 30, 34-37
+accounts\lockout.py                                    17      0   100%
+accounts\management\__init__.py                         0      0   100%
+accounts\management\commands\__init__.py                0      0   100%
+accounts\management\commands\seed_demo.py              34     34     0%   8-131
+accounts\models.py                                     12      1    92%   59
+accounts\permissions.py                                10      0   100%
+accounts\serializers.py                                16      0   100%
+accounts\urls.py                                        4      0   100%
+accounts\views.py                                      14      0   100%
+audit\__init__.py                                       0      0   100%
+audit\apps.py                                           7      0   100%
+audit\management\__init__.py                            0      0   100%
+audit\management\commands\__init__.py                   0      0   100%
+audit\management\commands\purge_audit_logs.py          23      1    96%   35
+audit\models.py                                        16      2    88%   70-71
+audit\services.py                                       7      0   100%
+audit\signals.py                                       19      2    89%   14, 17
+audit\tests.py                                         38      0   100%
+audit\tests_audit_ops.py                               39      0   100%
+audit\urls.py                                           3      0   100%
+audit\views.py                                         18      1    94%   35
+bbms\__init__.py                                        0      0   100%
+bbms\settings.py                                       35      1    97%   90
+bbms\urls.py                                           17      4    76%   49-54
+bbms\wsgi.py                                            4      4     0%   4-8
+bloodrequests\__init__.py                               0      0   100%
+bloodrequests\apps.py                                   5      0   100%
+bloodrequests\dashboard_views.py                       25      0   100%
+bloodrequests\export_views.py                          98      4    96%   39, 118, 132, 192
+bloodrequests\health_views.py                          17      2    88%   29-30
+bloodrequests\issue.py                                 28      2    93%   36-37
+bloodrequests\management\__init__.py                    0      0   100%
+bloodrequests\management\commands\__init__.py           0      0   100%
+bloodrequests\management\commands\seed_demo_s2.py      36     36     0%   9-139
+bloodrequests\models.py                                23      1    96%   119
+bloodrequests\reminders.py                             50      0   100%
+bloodrequests\review.py                                28      3    89%   35-36, 49
+bloodrequests\serializers.py                           28      1    96%   29
+bloodrequests\urls.py                                   7      0   100%
+bloodrequests\validation.py                             7      0   100%
+bloodrequests\views.py                                 28      2    93%   66, 81
+dispatch\__init__.py                                    0      0   100%
+dispatch\apps.py                                        8      0   100%
+dispatch\audit_hooks.py                                11      0   100%
+dispatch\models.py                                     12      1    92%   53
+dispatch\signals.py                                     9      0   100%
+dispatch\tests.py                                      40      0   100%
+dispatch\urls.py                                        3      0   100%
+dispatch\views.py                                      14      0   100%
+donations\__init__.py                                   0      0   100%
+donations\admin.py                                      7      0   100%
+donations\apps.py                                       4      0   100%
+donations\models.py                                    15      1    93%   64
+donations\serializers.py                               33      3    91%   31, 35, 39
+donations\services.py                                  20      1    95%   29
+donations\tests.py                                     54      0   100%
+donations\urls.py                                       3      0   100%
+donations\views.py                                     37      4    89%   38, 52-53, 96
+inventory\__init__.py                                   0      0   100%
+inventory\admin.py                                      7      0   100%
+inventory\alert_views.py                               24      2    92%   36-37
+inventory\alerts.py                                    30      0   100%
+inventory\apps.py                                       4      0   100%
+inventory\models.py                                    20      2    90%   54, 80
+inventory\search.py                                    19      0   100%
+inventory\serializers.py                                8      0   100%
+inventory\services.py                                  17      0   100%
+inventory\tests.py                                     21      0   100%
+inventory\urls.py                                       5      0   100%
+inventory\views.py                                     12      0   100%
+---------------------------------------------------------------------------------
+TOTAL                                                1201    125    90%

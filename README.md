@@ -80,3 +80,16 @@ python manage.py test
 - **Database:** SQLite (local dev), PostgreSQL (production)
 - **Frontend:** HTML, CSS, vanilla JavaScript
 - **CI:** GitHub Actions
+
+## Sprint 2 Additions
+
+- **Hospital Blood Requests (BBMS-F-031):** Hospital requisition workflow at `/api/requests`.
+- **Admin Dashboard & Reports (BBMS-F-050, BBMS-F-052):** Operational metrics, CSV/PDF export via ReportLab.
+- **Notification Microservice (BBMS-F-051):** Asynchronous donor reminder worker (`notification-service/`).
+- **Security & Uptime (BBMS-SR-001, BBMS-NF-002):** TLS enforcement, health check probe at `/api/health`.
+- **Request Review & Issuance (BBMS-F-040, BBMS-F-041):** Staff review and atomic stock decrement at `/api/requests/<id>/review` and `/api/requests/<id>/issue`.
+- **Account Lockout & Audit Log (BBMS-F-003, BBMS-SR-004):** Permanent lockout on 5 failed attempts, audit event logging at `/api/audit/`.
+- **Dispatch Tracking & Alerts (BBMS-F-042, BBMS-F-021, BBMS-F-022):** Immutable dispatch records at `/api/dispatch/<id>`, biological expiry and threshold alerts at `/api/inventory/alerts/`.
+- **Test Reports & Coverage:** Automated evaluation reports in `docs/reports/` (Statement & Branch coverage, Unit & System Validation reports).
+
+
